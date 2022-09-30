@@ -1,4 +1,4 @@
-# Opposing transcription factors MYCL and HEY1 mediate the Notch-dependent airway stem cell fate decision!
+# Opposing transcription factors MYCL and HEY1 mediate the Notch-dependent airway stem cell fate decision
 
 This repo contains the scripts to analyze the dataset presented in "Opposing transcription factors MYCL and HEY1 mediate the Notch-dependent airway stem cell fate decision".
 
