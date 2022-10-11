@@ -56,13 +56,51 @@ plot_cells(cds,color_cells_by = "cluster")
 cds <- learn_graph(cds,use_partition = T,learn_graph_control = list(minimal_branch_len=25))
 
 plot_cells(cds,
-           color_cells_by = "integrated_snn_res.0.3",
+           color_cells_by = "cluster",
            label_groups_by_cluster=TRUE,
            label_leaves=FALSE,
            label_branch_points=FALSE,group_label_size = 18)
 
 cds=order_cells(cds)
 
+#### reorder clusters
+coldat = colData(cds)
+coldat$ord_clus <- clusters(cds)
+coldat$mon_clus <- clusters(cds)
+coldat$ord_clus[coldat$mon_clus == 9] <- 1
+coldat$ord_clus[coldat$mon_clus == 10] <- 2
+coldat$ord_clus[coldat$mon_clus == 1] <- 3
+coldat$ord_clus[coldat$mon_clus == 2] <- 4
+coldat$ord_clus[coldat$mon_clus == 4] <- 5
+coldat$ord_clus[coldat$mon_clus == 3] <- 6
+coldat$ord_clus[coldat$mon_clus == 8] <- 7
+coldat$ord_clus[coldat$mon_clus == 6] <- 8
+coldat$ord_clus[coldat$mon_clus == 5] <- 9
+coldat$ord_clus[coldat$mon_clus == 7] <- 10
+coldat$ord_clus[coldat$mon_clus == 11] <- 11
+coldat$ord_clus[coldat$mon_clus == 12] <- 12
+coldat$ord_clus[coldat$mon_clus == 13] <- 13
+
+##
 saveRDS(cds, file=paste0(vers, "/",basename,"_",vers,"_aligned.rds"))
 cds=readRDS(file=paste0(vers, "/",basename,"_",vers,"_aligned.rds"))
+
+
+##### add monocle dimensions and clusters back into Seurat object ########
+
+seur=readRDS("NS_WtAd3_Ad3_Tdsort_v1_magic.rds")
+
+monocle_clus=colData(cds)[,"mon_clus"]
+seur$monocle_clus <- NA
+seur$monocle_clus[match(names(monocle_clus),rownames(seur@meta.data))] <- monocle_clus
+
+mon_umap=reducedDim(cds,type = "UMAP")
+mon_umap_ord = mon_umap[match(rownames(seur@meta.data),rownames(mon_umap)),]
+colnames(mon_umap_ord) <- c("UMAP 1","UMAP 2")
+
+seur[["monocle"]] <- CreateDimReducObject(embeddings = mon_umap_ord, key = "monocle_", assay = "RNA")
+
+DimPlot(seur, group.by = "monocle_clus",reduction="monocle")
+
+saveRDS(seur, file="NS_WtAd3_Ad3_Tdsort_v1_magic.rds")
 
