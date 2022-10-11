@@ -5,9 +5,10 @@ This repository contains analysis scripts for the datasets presented in "Opposin
 Script and data uploads are currently ongoing during the submission process.
 
 Individual scRNA-seq datasets
-  - Each dataset was individually analyzed. R scripts for each dataset can be run using output from Cellranger.
+  - Each dataset was individually analyzed. R scripts for each dataset can be run using output from Cellranger. Includes SoupX and removal of Scrublet identified doublets.
 
 Integrated scRNA-seq datasets
+  - main integration script is called seurat_integration.R. 
   - Tdsort, NS, WtAd3, and Ad3 datasets were integrated to create the dataset depicted in Figure 1A.
   - Gmnc, Mcidas, and NT1 datasets were integrated to create the dataset depicted in Figure 3.
  
