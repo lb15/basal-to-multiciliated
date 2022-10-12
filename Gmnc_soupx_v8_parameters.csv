@@ -1,0 +1,2 @@
+human_mouse,Mt_filter,nCount_high,nCount_low,nFeature_high,nFeature_low,PCs,resolution,path_to_doublet_csv,analyses
+mouse,12.5,100000,0,NA,3000,30,0.8,"/wynton/group/reiter/lauren/Gmnc/Gmnc_v8_scrublet_8perc_thresh0.22_output_table_rerun.csv","basic"
