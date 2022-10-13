@@ -11,8 +11,11 @@ Individual scRNA-seq datasets
 
 Integrated scRNA-seq datasets
   - main integration script is called seurat_integration.R. 
-  - Tdsort, NS, WtAd3, and Ad3 datasets were integrated (ALID03_integrated) to create the dataset depicted in Figure 1A.
-  - Gmnc, Mcidas, and nontargeted control (NT1_KO1) datasets were integrated (KO_integrated) to create the dataset depicted in Figure 3.
+  - Tdsort, NS, WtAd3, and Ad3 datasets were integrated (ALID03_integrated) to create the dataset depicted in Figure 1A. Analysis scripts for integrated object is in ALID03_integrated.
+  - Gmnc, Mcidas, and nontargeted control (NT1_KO1) datasets were integrated (KO_integrated) to create the dataset depicted in Figure 3. Analysis scripts for integrated object is in KO_integrated.
+  
+Figures
+  - contains scripts for producing Figures. Some panels are also generated within the integrated dataset analysis scripts. 
  
 CUT&RUN dataset
   - CUT&RUN was performed using the scripts in the autoCutandRun repository at https://github.com/lb15/autoCutandRun. Scripts are derived from CUT&RUNtools at https://bitbucket.org/qzhudfci/cutruntools/ and the CUT&TAG analysis tutorial at https://www.protocols.io/view/cut-amp-tag-data-processing-and-analysis-tutorial-e6nvw93x7gmk/v1.
