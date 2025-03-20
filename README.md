@@ -2,6 +2,8 @@
 
 This repository contains analysis scripts for the datasets presented in "Opposing transcription factors MYCL and HEY1 mediate the Notch-dependent airway stem cell fate decision". doi: https://doi.org/10.1101/2022.10.05.511009
 
+<img width="549" alt="Screen Shot 2025-03-19 at 9 15 13 PM" src="https://github.com/user-attachments/assets/f1745c0c-ba46-4491-9f4a-c6622aa43384" />
+
 Script and data uploads are currently ongoing during the submission process.
 
 Individual scRNA-seq datasets
